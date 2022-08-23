@@ -24,7 +24,7 @@ from collections import Counter
 def ordered_deck():
     initial_items_deck = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King']
     total_item_deck = []
-    #note: reference equivalent to active loop below
+    #note: reference equivalent to active loop below but with extra steps
     # for i in range(0, len(initial_items_deck), 1):
     #     total_item_deck += [initial_items_deck[i]] * 4
     for item in initial_items_deck:
@@ -38,14 +38,21 @@ def shuffled_deck():
     print(deck)
     return deck
 
-def four_items_per_deck_counter():
+def four_types_per_deck_counter():
     cards_to_count = shuffled_deck()
     my_dict = dict(Counter(cards_to_count))
     print(my_dict)
     return cards_to_count
 
-
+def five_cards_per_player():
+    complete_deck = shuffled_deck()
+    player = []
+    while len(player) < 5:
+        player += [complete_deck.pop()]
+    print(player)
+    return player
 
 # ordered_deck()
 # shuffled_deck()
-# four_items_per_deck_counter()
+# four_types_per_deck_counter()
+five_cards_per_player()
