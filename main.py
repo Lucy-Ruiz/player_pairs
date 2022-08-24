@@ -80,6 +80,9 @@ def game():
         Number of pairs: {total_pairs}\n''')
         player_number += 1
 
+game()
+
+#couldn't complete last storty to determine if it was win or tied
 # def tied_or_winner():
 #         counting = 0
 #         for i in range(0, len(something), 1):
