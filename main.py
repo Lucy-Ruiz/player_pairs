@@ -29,30 +29,57 @@ def ordered_deck():
     #     total_item_deck += [initial_items_deck[i]] * 4
     for item in initial_items_deck:
         total_item_deck += [item] * 4
-    print(total_item_deck)
+    #print(total_item_deck)
     return total_item_deck
 
 def shuffled_deck():
     deck = ordered_deck()
     random.shuffle(deck)
-    print(deck)
+    #print(deck)
     return deck
 
 def four_types_per_deck_counter():
     cards_to_count = shuffled_deck()
     my_dict = dict(Counter(cards_to_count))
     print(my_dict)
-    return cards_to_count
+    return my_dict
 
-def five_cards_per_player():
-    complete_deck = shuffled_deck()
+def five_cards_per_player(complete_deck):
     player = []
     while len(player) < 5:
         player += [complete_deck.pop()]
-    print(player)
+    #print(player)
     return player
 
-# ordered_deck()
-# shuffled_deck()
-# four_types_per_deck_counter()
-five_cards_per_player()
+def hands_to_players():
+    deck = shuffled_deck()
+    hand1 = five_cards_per_player(deck)
+    hand2 = five_cards_per_player(deck)
+    hand3 = five_cards_per_player(deck)
+    hand4 = five_cards_per_player(deck)
+    all_hands = [hand1, hand2, hand3, hand4]
+    #print(all_hands)
+    return all_hands
+
+def count_pairs(hand):
+    my_dict = dict(Counter(hand))
+    count = 0
+    for key in my_dict:
+        if my_dict[key] == 2:
+            count += 1
+    return count
+
+def game():
+    all_hands = hands_to_players()
+    player_number = 1
+    for hands in all_hands:
+        total_pairs = count_pairs(hands)
+        print(f'Player {player_number}')
+        player_number += 1
+        print(f'Hands:{hands}')
+        print(f'Number of pairs: {total_pairs}')
+    
+
+game()
+
+        
