@@ -74,12 +74,14 @@ def game():
     player_number = 1
     for hands in all_hands:
         total_pairs = count_pairs(hands)
-        print(f'Player {player_number}')
+        print(f'''
+        Player {player_number}
+        Hands: {hands}
+        Number of pairs: {total_pairs}\n''')
         player_number += 1
-        print(f'Hands:{hands}')
-        print(f'Number of pairs: {total_pairs}')
-    
 
-game()
-
-        
+# def tied_or_winner():
+#         counting = 0
+#         for i in range(0, len(something), 1):
+#             if i > 1:
+#                 counting += 1
